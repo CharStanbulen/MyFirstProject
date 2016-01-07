@@ -1,0 +1,15 @@
+body {
+  badkground: url('http://cdn.com.cn/images/me.jpg');
+}
+img {
+  border: 0;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.add {
+  background: black;
+}
