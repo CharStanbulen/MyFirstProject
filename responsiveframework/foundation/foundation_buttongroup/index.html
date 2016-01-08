@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>foundation begin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-5.5.3/foundation.min.css">
+  <script type="text/javascript" src="http://static.runoob.com/assets/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/foundation.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/vendor/modernizr.js"></script>
+</head>
+<body>
+  <h2>按钮组</h2>
+  <ul class="button-group">
+    <li><button type="button" class="button">Apple</button></li>
+    <li><button type="button" class="button">Samsung</button></li>
+    <li><button type="button" class="button">Sony</button></li>
+  </ul>
+  <h2>垂直按钮组</h2>
+  <p>垂直按钮组使用.stack类来创建。注意，按钮会跨越父元素整个宽度</p>
+  <ul class="button-group stack">
+    <li><button type="button" class="button">Apple</button></li>
+    <li><button type="button" class="button">Samsung</button></li>
+    <li><button type="button" class="button">Sony</button></li>
+  </ul>
+  <h2>垂直按钮组<h2>
+  <p>.stack-for-small类用于小尺寸的屏幕，按钮有水平排列变为垂直排列（种植窗口大小查看效果）：</p>
+  <ul class="button-group stack-for-small">
+    <li><button type="button" class="button">Apple</button></li>
+    <li><button type="button" class="button">Samsung</button></li>
+    <li><button type="button" class="button">Sony</button></li>
+  </ul>
+  <h2>圆角按钮组</h2>
+  <ul class="button-group radius">
+    <li><button type="button" class="button">Apple</button></li>
+    <li><button type="button" class="button">Samsung</button></li>
+    <li><button type="button" class="button">Sony</button></li>
+  </ul>
+  <h2>均匀延展按钮组：</h2>
+  <p>均匀延生三个按钮</p>
+  <ul class="button-group even-3">
+    <li><button type="button" class="button">Apple</button></li>
+    <li><button type="button" class="button">Samsung</button></li>
+    <li><button type="button" class="button">Sony</button></li>
+  </ul>
+  <p>均匀延生5个按钮</p>
+  <ul class="button-group even-5">
+    <li><button type="button" class="button">Apple</button></li>
+    <li><button type="button" class="button">Samsung</button></li>
+    <li><button type="button" class="button">Sony</button></li>
+    <li><button type="button" class="button">HTC</button></li>
+    <li><button type="button" class="button">Huawei</button></li>
+  </ul>
+  <p>均匀延生8个按钮</p>
+    <ul class="button-group even-8">
+    <li><button type="button" class="button">A</button></li>
+    <li><button type="button" class="button">B</button></li>
+    <li><button type="button" class="button">C</button></li>
+    <li><button type="button" class="button">D</button></li>
+    <li><button type="button" class="button">E</button></li> 
+    <li><button type="button" class="button">F</button></li>
+    <li><button type="button" class="button">G</button></li>
+    <li><button type="button" class="button">H</button></li>
+  </ul>
+  <h2>下拉菜单按钮</h2>
+  <a href="#" data-dropdown="id01" class="button dropdown">Dropdown Button</a>
+  <ul id="id01" data-drop-down-content class="f-dropdown">
+    <li><a href="#">Link 1</a></li>
+    <li><a href="#">Link 2</a></li>
+    <li><a href="#">Link 3</a></li>
+  </ul>
+  <h2>分割按钮</h2>
+  <button class="button split">Slip Button<span data-dropdown="id02"></span></button>
+    <ul id="id02" data-drop-down-content class="f-dropdown">
+    <li><a href="#">Link 1</a></li>
+    <li><a href="#">Link 2</a></li>
+    <li><a href="#">Link 3</a></li>
+  </ul>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(document).foundation();
+    })
+  </script>
+</body>
+</html>
