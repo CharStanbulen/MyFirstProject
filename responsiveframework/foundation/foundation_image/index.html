@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>foundation begin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-5.5.3/foundation.min.css">
+  <script type="text/javascript" src="http://static.runoob.com/assets/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/foundation.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/vendor/modernizr.js"></script>
+</head>
+<body>
+  <div style="padding:20px">
+    <h2>缩略图</h2>
+    <p>在<code>&lt;a&gt;</code>标签添加<code>.th</code>类将图片设置位缩略图。鼠标移到上面会显示一个浅蓝色的外框：</p>
+    <p><strong>注意：</strong> Foundation 中图片默认是响应式的。重置窗口大小可以查看效果。</p>
+    <a href="http://www.runoob.com/try/demo_source/paris.jpg" target="_blank" class="th">
+      <img src="http://www.runoob.com/try/demo_source/paris.jpg" alt="Pairs" width="400" height="300">
+    </a>
+  </div>
+  <div style="padding:20px">
+    <h2>Thumbnial</h2>
+    <p>在<code>&lt;a&gt;</code>标签添加.th类将图片设置位缩略图。鼠标移到上面会显示一个浅蓝色的外框：</p>
+    <p><strong>注意：</strong> Foundation 中图片默认是响应式的。重置窗口大小可以查看效果。</p>
+    <a href="http://www.runoob.com/try/demo_source/paris.jpg" target="_blank" class="th radius">
+      <img src="http://www.runoob.com/try/demo_source/paris.jpg" alt="Pairs" width="400" height="300">
+    </a>
+  </div>  
+  <div style="padding:20px">
+    <h2>简洁的弹窗</h2>
+    <p>要创建一个弹窗可以在<code>&lt;a&gt;</code>元素上添加<code>.clearing-thunbs</code>类及<code>data-clearing</code>属性。在<code>&lt;ul&gt;</code>内添加图片列表</p>
+    <ul class="clearing-thumbs" data-clearing>
+      <li><a href="http://www.runoob.com/try/demo_source/rock600x400.jpg"><img src="http://www.runoob.com/try/demo_source/rock600x400.jpg" width="200" height="100"></a></li>
+      <li><a href="http://www.runoob.com/try/demo_source/skies600x400.jpg"><img src="http://www.runoob.com/try/demo_source/skies600x400.jpg" width="200" height="100"></a></li>
+      <li><a href="http://www.runoob.com/try/demo_source/lights600x400.jpg"><img src="http://www.runoob.com/try/demo_source/lights600x400.jpg" width="200" height="100"></a></li>
+    </ul>
+  </div> 
+  <div style="padding:20px">
+    <h2>Lightbox Captions</h2>
+    <p>可以添加<code>data-caption</code>属性到每个图片来设置图片的描述。</p>
+    <ul class="clearing-thumbs" data-clearing>
+      <li><a href="http://www.runoob.com/try/demo_source/rock600x400.jpg" class="th"><img data-caption="The pulpit Rock" src="http://www.runoob.com/try/demo_source/rock600x400.jpg" width="200" height="100"></a></li>
+      <li><a href="http://www.runoob.com/try/demo_source/skies600x400.jpg" class="th"><img data-caption="Sunrise Skies" src="http://www.runoob.com/try/demo_source/skies600x400.jpg" width="200" height="100"></a></li>
+      <li><a href="http://www.runoob.com/try/demo_source/lights600x400.jpg" class="th"><img data-caption="Northern Lights" src="http://www.runoob.com/try/demo_source/lights600x400.jpg" width="200" height="100"></a></li>
+    </ul>
+  </div>   
+  <div style="padding:20px">
+    <h2>弹窗特点</h2>
+    <p>当需要实现只显示一张缩略图时可以在<code>&lt;ul&gt;</code>中使用<code>.clearing-feature</code>类并在<code>&lt;li&rt;</code>中使用<code>clear-featured-img</code>类。</p>
+    <ul class="clearing-thumbs clearing-feature" data-clearing>
+      <li><a href="http://www.runoob.com/try/demo_source/rock600x400.jpg" class="th"><img data-caption="The pulpit Rock" src="http://www.runoob.com/try/demo_source/rock600x400.jpg" width="200" height="100"></a></li>
+      <li><a href="http://www.runoob.com/try/demo_source/skies600x400.jpg" class="th"><img data-caption="Sunrise Skies" src="http://www.runoob.com/try/demo_source/skies600x400.jpg" width="200" height="100"></a></li>
+      <li class="clearing-featured-img"><a href="http://www.runoob.com/try/demo_source/lights600x400.jpg" class="th"><img data-caption="Northern Lights" src="http://www.runoob.com/try/demo_source/lights600x400.jpg" width="200" height="100"></a></li>
+    </ul>
+  </div>   
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(document).foundation();
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>foundation begin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-5.5.3/foundation.min.css">
+  <script type="text/javascript" src="http://static.runoob.com/assets/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/foundation.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/vendor/modernizr.js"></script>
+</head>
+<body>
+  <h2>可折叠实例</h2>
+  <ul class="accordion" data-accordion>
+    <li class="accordion-navigation">
+      <a href="#demo">简单的可折叠实例</a>
+        <div id="demo" class="content">
+          我是Char，一定会成为世界级的前端工程师！！！
+        </div>
+    </li>
+  </ul>
+  <h2>手风琴实例</h2>
+  <ul class="accordion" data-accordion>
+    <li class="accordion-navigation">
+      <a href="#demo01">手风琴 1</a>
+      <div id="demo01" class="content active">
+        Demo 1 - 我是Char，一定会成为世界级的前端工程师！！！
+      </div>
+    </li>
+    <li class="accordion-navigation">
+      <a href="#demo02">手风琴 2</a>
+      <div id="demo02" class="content">
+        Demo 2 - 我是Char，一定会成为世界级的前端工程师！！！
+      </div>
+    </li>    
+    <li class="accordion-navigation">
+      <a href="#demo03">手风琴 1</a>
+      <div id="demo03" class="content">
+        Demo 3 - 我是Char，一定会成为世界级的前端工程师！！！
+      </div>
+    </li>
+  </ul>
+  <h2>手风琴同事打开多个navigation</h2>
+  <ul class="accordion" data-accordion data-option="multi-expand:true;">
+    <li class="accordion-navigation">
+      <a href="#demo04">手风琴 1</a>
+      <div id="demo04" class="content ">
+        Demo 1 - 我是Char，一定会成为世界级的前端工程师！！！
+      </div>
+    </li>
+    <li class="accordion-navigation">
+      <a href="#demo05">手风琴 2</a>
+      <div id="demo05" class="content">
+        Demo 2 - 我是Char，一定会成为世界级的前端工程师！！！
+      </div>
+    </li>    
+    <li class="accordion-navigation">
+      <a href="#demo06">手风琴 1</a>
+      <div id="demo06" class="content">
+        Demo 3 - 我是Char，一定会成为世界级的前端工程师！！！
+      </div>
+    </li>
+  </ul>
+<script type="text/javascript">
+    $(document).ready(
+      function(){
+        $(document).foundation();
+      }
+    )
+  </script>
+</body>
+</html>

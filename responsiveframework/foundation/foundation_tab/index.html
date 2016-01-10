@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>foundation begin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-5.5.3/foundation.min.css">
+  <script type="text/javascript" src="http://static.runoob.com/assets/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/foundation.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/vendor/modernizr.js"></script>
+  <style type="text/css">
+  /*use css3 to achive the fandin animation effect*/
+    .tabs-content > .content.active{
+      -webkit-animation:fadeEffect 1s;
+      animation:fadeEffect 1s;
+    }
+    @-webkit-keyframes fadeEffect{
+      from{opacity:0;}
+      to{opacity:1;}
+    }
+    @keyframes fadeEffect{
+      from{opacity:0;}
+      to{opacity:1;}
+    }
+  </style>
+</head>
+<body>
+  <h2>选项卡</h2>
+  <ul class="tabs" data-tab>
+    <li class="tab-title active"><a href="#">Home</a></li>
+    <li class="tab-title"><a href="#">Menu 1</a></li>
+    <li class="tab-title"><a href="#">Menu 2</a></li>
+    <li class="tab-title"><a href="#">Menu 3</a></li>
+  </ul>
+    <h2>垂直的选项卡</h2>
+    <ul class="tabs vertical" data-tab  style="float:none">
+      <li class="tab-title active"><a href="#">Home</a></li>
+      <li class="tab-title"><a href="#">Menu 1</a></li>
+      <li class="tab-title"><a href="#">Menu 2</a></li>
+      <li class="tab-title"><a href="#">Menu 3</a></li>
+    </ul>
+  <h2>切换选项卡</h2>
+  <ul class="tabs" data-tab="">
+    <li class="tab-title"><a href="#home" aria-selected="false" tabindex="-1">Home</a></li>
+    <li class="tab-title"><a href="#menu1" aria-selected="false" tabindex="-1">菜单 1</a></li>
+    <li class="tab-title active"><a href="#menu2" aria-selected="true" tabindex="0">菜单 2</a></li>
+    <li class="tab-title"><a href="#menu3" aria-selected="false" tabindex="-1">菜单 3</a></li>
+  </ul>
+  <div class="tabs-content">
+    <div class="content" id="home" aria-hidden="true" tabindex="-1">
+      <h3>主页</h3>
+      <p>主页内容..</p>
+    </div>
+    <div class="content" id="menu1" aria-hidden="true" tabindex="-1">
+      <h3>菜单 1</h3>
+      <p>一些文本内容..</p>
+    </div>
+    <div class="content active" id="menu2" aria-hidden="false">
+      <h3>菜单 2</h3>
+      <p>一些文本内容..</p>
+    </div>
+    <div class="content" id="menu3" aria-hidden="true" tabindex="-1">
+      <h3>菜单 3</h3>
+      <p>一些文本内容..</p>
+    </div>
+  </div>
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(document).foundation();
+    })
+  </script>
+</body>
+</html>

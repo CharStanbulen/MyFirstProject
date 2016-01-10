@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>foundation begin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-5.5.3/foundation.min.css">
+  <script type="text/javascript" src="http://static.runoob.com/assets/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/foundation.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/vendor/modernizr.js"></script>
+</head>
+<body>
+  <div style="padding:20px">
+    <h2>提醒框</h2>
+    <div data-alert class="alert-box">
+      This is a default alert box
+    </div>
+    <div data-alert class="alert-box secondary">
+      This is a secondary alert box
+    </div>
+    <div data-alert class="alert-box success">
+      <strong>Success!</strong> This alert box indicates a successful or positive action.
+    </div>
+    <div data-alert class="alert-box info">
+      <strong>Info!</strong> This alert box indicates a successful or positive action.
+    </div>
+    <div data-alert class="alert-box warning">
+      <strong>Warning!</strong> This alert box indicates a warning that might need attention.
+    </div>
+    <div data-alert class="alert-box alert">
+      <strong>Alert!</strong> This alert box dangerous or potentially negative action.
+    </div>
+  </div>
+  <div style="padding:20px">
+    <h2>圆角提醒框</h2>
+    <div data-alert class="alert-box radius">
+      Defalut Alert box with radius.
+    </div>
+    <div data-alert class="alert-box secondary radius">
+      Secondary Alert box with radius.
+    </div>
+    <div data-alert class="alert-box success radius">
+      <strong>Success!</strong> Alert box with radius.
+    </div>
+    <div data-alert class="alert-box info radius">
+      <strong>Info!</strong>  Alert box with radius.
+    </div>
+    <div data-alert class="alert-box warning radius">
+      <strong>Warning!</strong>  Alert box with radius.
+    </div>
+    <div data-alert class="alert-box alert radius">
+      <strong>Alert!</strong>  Alert box with radius.
+    </div>
+  </div> 
+  <div style="padding:20px">
+    <h2>关闭提醒框</h2>
+    <div data-alert class="alert-box">
+      This is a default alert box
+      <a href="#" class="close">&times;</a>
+    </div>
+    <div data-alert class="alert-box secondary">
+      This is a secondary alert box
+      <a href="#" class="close">&times;</a>
+    </div>
+    <div data-alert class="alert-box success">
+      <strong>Success!</strong> This alert box indicates a successful or positive action.
+      <a href="#" class="close">&times;</a>
+    </div>
+    <div data-alert class="alert-box info">
+      <strong>Info!</strong> This alert box indicates a successful or positive action.
+      <a href="#" class="close">&times;</a>
+    </div>
+    <div data-alert class="alert-box warning">
+      <strong>Warning!</strong> This alert box indicates a warning that might need attention.
+      <a href="#" class="close">&times;</a>
+    </div>
+    <div data-alert class="alert-box alert">
+      <strong>Alert!</strong> This alert box dangerous or potentially negative action.
+      <a href="#" class="close">&times;</a>
+    </div>
+  </div>
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(document).foundation();
+    })
+  </script>
+</body>
+</html>

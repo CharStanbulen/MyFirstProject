@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>foundation begin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-5.5.3/foundation.min.css">
+  <script type="text/javascript" src="http://static.runoob.com/assets/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/foundation.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/vendor/modernizr.js"></script>
+</head>
+<body style="padding:20px">
+  <h2>分页</h2>
+  <p>.pagination类提供了分页链接：</p>
+  <ul class="pagination">
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+  </ul>
+  <h2>分页 - 当前页</h2>
+  <p>当前页面需要添加.current类：</p>
+  <ul class="pagination">
+    <li class="current"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+  </ul>
+  <h2>禁用分页</h2>
+  <p>如果要设置当前分页不可用可以使用.unavailable类</p>
+  <ul class="pagination">
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li class="unavailable"><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+  </ul>
+  <h2>分页方向符号</h2>
+  <p>使用.arrow类来创建方向符号：</p>  
+  <ul class="pagination">
+    <li class="arrow"><a href="#">«</a></li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li class="arrow"><a href="#">»</a></li>
+  </ul>
+  <h2>分页居中</h2>
+  <p>分页居中可以在UL外层添加div冰使用pagination-centered类：</p>  
+  <div class="pagination-centered">
+    <ul class="pagination">
+      <li class="arrow"><a href="#">«</a></li>
+      <li class="current"><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li class="arrow"><a href="#">»</a></li>
+    </ul>
+  </div>
+  <!--面包屑导航-->
+  <!--面包屑导航(BreadcrumbNavigation)这个概念来自童话故事"汉赛尔和格莱特"，当汉赛尔和格莱特穿过森林时，不小心迷路了，但是他们发现在沿途走过的地方都撒下了面包屑，让这些面包屑来帮助他们找到回家的路。所以，面包屑导航的作用是告诉访问者他们目前在网站中的位置以及如何返回。-->    
+  <h2>面包屑导航</h2>
+  <p>.breadcrumb类用于展示面包屑导航：</p>
+  <ul class="breadcrumbs">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Private</a></li>
+    <li class="unavailable"><a href="#">Pictures</a></li>
+    <li class="current"><a href="#">Vacation</a></li>
+  </ul>
+  <h2>子导航</h2>
+  <ul class="sub-nav">
+    <dt>Filter</dt>
+    <dd class="active"><a href="#">All</a></dd>
+    <dd><a href="#">Active</a></dd>
+    <dd><a href="#">Pending</a></dd>
+    <dd><a href="#">Suspended</a></dd>
+  </ul>
+ </body>
+</html>
