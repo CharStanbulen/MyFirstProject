@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>foundation begin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-5.5.3/foundation.min.css">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+  <script type="text/javascript" src="http://static.runoob.com/assets/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/foundation.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/vendor/modernizr.js"></script>
+</head>
+<body>
+  <div style="padding:20px">
+    <h2>区间滑块</h2>
+    <p>.range-slider-handle类创建一个滑块实体（蓝色矩形），.range-slider-active-segment在滑块后添加灰色横条：</p>
+    <div class="range-slider" data-slider>
+      <span class="range-slider-handle"></span>
+      <span class="range-slider-active-segment"></span>
+    </div>
+  </div>
+  <div style="padding:20px">
+    <h2>圆角 & 禁用滑块</h2>
+    <p>使用<code>.radius</code>和<code>.round</code>类来添加圆角滑块。使用<code>.disabled</code>类来禁用滑块：</p>
+    <span>默认</span>
+    <div class="range-slider" data-slider>
+      <span class="range-slider-handle"></span>
+      <span class="range-slider-active-segment"></span>
+    </div>
+    <span>圆角</span>
+    <div class="range-slider radius" data-slider>
+      <span class="range-slider-handle"></span>
+      <span class="range-slider-active-segment"></span>
+    </div>
+    <span>圆形</span>
+    <div class="range-slider round" data-slider>
+      <span class="range-slider-handle"></span>
+      <span class="range-slider-active-segment"></span>
+    </div>
+    <span>禁用</span>
+    <div class="range-slider disabled" data-slider>
+      <span class="range-slider-handle"></span>
+      <span class="range-slider-active-segment"></span>
+    </div>
+  </div>  
+  <div style="padding:20px">
+    <h2>垂直滑块</h2>
+    <p>使用<code>.vertical-range</code>和<code>data-options="vertical:true"</code>类创建垂直滑块：</p>
+    <div class="range-slider vertical-range" data-slider data-options="vertical:true;">
+      <span class="range-slider-handle"></span>
+      <span class="range-slider-active-segment"></span>
+    </div>
+  </div>  
+  <div style="padding:20px">
+    <h2>滑块值</h2>
+    <p>默认情况下，滑块放在横条的中间（数值为“50”）。可以通过<code>data-option="initial:<em>num</em>"</code>属性来修改默认值：</p>
+    <div class="range-slider" data-slider data-options="initial:80">
+      <span class="range-slider-handle"></span>
+      <span class="range-slider-active-segment"></span>
+    </div>
+  </div>  
+  <div style="padding:20px">
+    <h2>组合数据项</h2>
+    <p>以下使用了<code>display_selector</code>和<code>initail</code>数据选项：</p>
+    <span id="mySlider02"></span>
+    <div class="range-slider" data-slider data-options="display_selector:#mySlider02;start:1;end:20;">
+      <span class="range-slider-handle"></span>
+      <span class="range-slider-active-segment"></span>
+    </div>
+  </div>  
+  <div class="row">
+    <h2>使用网格</h2>
+    <p>以下使用为在网格中使用滑块：</p>
+    <div class="small-10 columns">
+      <div class="range-slider" data-slider data-options="display_selector:#mySlider03;start:1;end:20;">
+        <span class="range-slider-handle"></span>
+        <span class="range-slider-active-segment"></span>
+      </div>
+    </div>
+    <div class="small-2 columns">
+      <span id="mySlider03" style="display:block;margin-top:14px;"></span>
+    </div>
+    </div>
+  </div>
+  <div class="row">
+    <h2>使用 Input</h2>
+    <p>以下实例使用<code>&lt;input&gt;</code>取代<code>&lt;span&gt;</code>来显示滑块的值：</p>
+    <div class="small-10 columns">
+      <div class="range-slider" data-slider data-options="display_selector:#mySlider04;start:1;end:20;initial:14">
+        <span class="range-slider-handle"></span>
+        <span class="range-slider-active-segment"></span>
+      </div>
+    </div>
+    <div class="small-2 columns">
+      <input type="number" id="mySlider04" style="margin-top:7px" value="14">
+    </div>
+    </div>
+  </div>  
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(document).foundation();
+    })
+  </script>
+</body>
+</html>

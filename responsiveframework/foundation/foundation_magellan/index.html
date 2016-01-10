@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>foundation begin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-5.5.3/foundation.min.css">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+  <script type="text/javascript" src="http://static.runoob.com/assets/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/foundation.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/vendor/modernizr.js"></script>
+  <style>
+  [data-magellan-expedition], [data-magellan-expedition-clone] {
+      padding: 0;
+  }
+  </style>
+</head>
+<body style="height:1500px;padding:20px;">
+<!--
+  <h2>Megallen</h2>
+  <h4 class="subheader">麦哲伦导航就是一个导航索引，位置是固定的，会根据用户滚动当前展示的内容自动切换导航栏上的导航项：</h4>
+  <hr>
+  <div data-magellan-expedition="fixed">
+    <dl class="sub-nav">
+      <dd data-magellan-arrival="page1"><a href="#page1">Page 1</a></dd>
+      <dd data-magellan-arrival="page2"><a href="#page2">Page 2</a></dd>
+    </dl>
+  </div>
+  <hr>
+  <div style="height:200px;background-color:#1abc9c;color:white">
+    <h3 data-magellan-destination="page1">页面1</h3>
+    <a name="page1"></a>
+    <p>滚动屏幕，查看导航栏上的变化。</p>
+  </div>
+  <h3 data-magellan-destination="page2">页面2</h3>
+  <a name="page2"></a>
+  <p>滚动屏幕，查看导航栏上的变化。并尝试向上滚动。</p>
+-->
+<div data-magellan-expedition="fixed">
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">WebSiteName</a></h1>
+    </li>
+    <!-- Collapsible Button on small screens: remove the .menu-icon class to get rid of icon. 
+    Remove the "Menu" text if you only want to show the icon -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="left">
+      <li data-magellan-arrival="page1"><a href="#page1">Page 1</a></li>
+      <li data-magellan-arrival="page2"><a href="#page2">Page 2</a></li>
+    </ul>
+  </section>
+</nav>
+</div>
+
+<div style="padding:20px;height:1500px;">
+  <h3>Magellan 头部导航实例</h3>
+  <p>向下滚动页面查看效果。</p>
+
+<div style="height:200px;background-color:#1abc9c;color:white;">
+  <h3 data-magellan-destination="page1">Page1</h3>
+  <a name="page1"></a>
+  <p>滚动屏幕，查看导航栏上的变化。</p>
+</div>
+
+<h3 data-magellan-destination="page2">Page2</h3>
+<a name="page2"></a>
+<p>滚动屏幕，查看导航栏上的变化。并尝试向上滚动。</p>
+</div>
+
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(document).foundation();
+    })
+  </script>
+</body>
+</html>

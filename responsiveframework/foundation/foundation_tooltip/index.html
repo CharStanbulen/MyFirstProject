@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>foundation begin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-5.5.3/foundation.min.css">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+  <script type="text/javascript" src="http://static.runoob.com/assets/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/foundation.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/vendor/modernizr.js"></script>
+</head>
+<body style="padding:20px">
+  <h2>提示框</h2>
+  <span data-tooltip title="Foundation教程" class="has-tip">鼠标移到我这！</span>
+  <a href="#" data-tooltip class="button" title="www.runoob.com">鼠标移到我这！</a>
+  <h2>提示框的位置</h2>
+  <p>默认情况下在元素的底部。</p>
+  <p>可以使用<code>.tip-top</code>，<code>.tip-left</code>，<code>.tip-bottom</code>（默认） or <code>.tip-right</code>来设置提示框的位置：</p>
+   <p><strong>注意：</strong>在小尺寸的屏幕上，提示框的宽带是 100%</p>
+   <span data-tooltip class="has-tip tip-top" title="Foundation教程！">顶部</span>
+   <span data-tooltip class="has-tip tip-bottom" title="Foundation教程！">底部</span>
+   <span data-tooltip class="has-tip tip-left" title="Foundation教程">左边</span>
+   <span data-tooltip class="has-tip tip-right" title="Foundation教程">右边</span>
+   <h2>圆角提示框</h2>
+   <p>.radius和.round类用于设置圆角提示框：</p>
+   <span data-tooltip class="has-tip" title="Foundation教程！">默认</span>
+   <span data-tooltip class="has-tip radius" title="Foundation教程！">圆角</span>
+   <span data-tooltip class="has-tip round" title="Foundation教程！">圆形</span>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(document).foundation();
+    })
+  </script>
+</body>
+</html>

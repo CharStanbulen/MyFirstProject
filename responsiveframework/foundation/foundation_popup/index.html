@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>foundation begin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-5.5.3/foundation.min.css">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+  <script type="text/javascript" src="http://static.runoob.com/assets/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/foundation.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/vendor/modernizr.js"></script>
+</head>
+<body style="padding:20px;height:2000px">
+  <div style="padding:20px">
+    <h2>模态框</h2>
+    <p>模态框是一个显示在页面头部的弹窗。</p>
+    <button type="button" class="button" data-reveal-id="myModal">点我打开模态框</button>
+    
+    <div id="myModal" class="reveal-modal" data-reveal>
+      <h2>Heading in Modal</h2>
+      <p>Some text in the Modal.</p>
+      <p>Some text in the Modal.</p>
+      <a class="close-reveal-modal">&times;</a>
+    </div>
+  </div>
+  <div style="padding:20px;">
+    <h2>模态框大小</h2>
+    <p>使用以下类来修改模态框大小:</p>
+    <ul>
+      <li><code>.tiny</code>: 设置宽度为 30%</li>
+      <li><code>.small</code>: 设置宽度为 40%</li>
+      <li><code>.medium</code>: 设置宽度为 60%</li>
+      <li><code>.large</code>: 设置宽度为 70%</li>
+      <li><code>.xlarge</code>: 设置宽度为 95%</li>
+      <li><code>.full</code>: 设置宽度喝高度为 100%</li>
+    </ul>
+    
+    <button type="button" class="button" data-reveal-id="myModal1">打开小个模态框</button>
+    
+    <div id="myModal1" class="reveal-modal tiny" data-reveal>
+      <h2>小个模态框</h2>
+      <p>这是一个小个模态框。尝试使用不同的类来修改模态框大小。</p>
+      <a class="close-reveal-modal">&times;</a>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(document).foundation();
+    })
+  </script>
+</body>
+</html>

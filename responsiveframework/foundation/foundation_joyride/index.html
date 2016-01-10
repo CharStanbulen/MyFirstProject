@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>foundation begin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-5.5.3/foundation.min.css">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+  <script type="text/javascript" src="http://static.runoob.com/assets/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/foundation.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/vendor/modernizr.js"></script>
+</head>
+<body>
+  <h2>Joyride实例</h2>
+  <p>joyride在页面载入后生效</p>
+  <h3 id="first">第一个停止位置！</h3>
+  <h3 id="second">第二个停止位置！</h3>
+  <ol class="joyride-list" data-joyride>
+    <li data-id="first">
+      <p>这是一个Joyride。你可以点击“x”按钮关闭它。</p>
+      <p>注意以下按钮，你带你到下一个功能导航。</p>
+    </li>
+    <li data-id="second">
+      <p>第二个停止位置Stop</p>
+      <p>你可以在这使用任何HTML代码</p>
+    </li>
+    <li data-button="End">
+      <h4>结束位置</h4>
+      <p>结束位置，你可以从头开始，或者关闭它。</p>
+    </li>
+  </ol>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(document).foundation('joyride','start');
+    })
+  </script>
+</body>
+</html>

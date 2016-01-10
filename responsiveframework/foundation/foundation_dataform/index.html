@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>foundation begin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-5.5.3/foundation.min.css">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+  <script type="text/javascript" src="http://static.runoob.com/assets/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/foundation.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/vendor/modernizr.js"></script>
+</head>
+<body style="padding:20px">
+  <h2>表单</h2>
+  <form>
+    <label for="name" class="right">Input
+      <input type="text" placeholder="Name" id="name">
+    </label>
+    <label for="address" class="right">Textarea
+      <textarea rows="4" placeholder="Address" placeholder="Address" id="address"></textarea>
+    </label>
+    <label for="num" class="right">Select:
+      <select id="num">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>a
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </label>
+  </form>
+  <h2>fieldset</h2>
+  <form>
+    <fieldset>
+      <legend>fieldset Legend</legend>
+      <label>Name
+        <input type="text" placeholder="First Name..">
+      </label>
+      <label>Email
+        <input type="text" placeholder="Enter email..">
+      </label>
+    </fieldset>
+  </form>
+  <h2>错误状态</h2>
+  <form>
+    <label class="error">错误状态
+      <input type="text" placeholder="Name..">
+    </label>
+    <small class="error">输入错误</small>
+    <textarea rows="4" placeholder="Address"></textarea>
+    <small class="error">输入错误</small>
+  </form>
+  <p>Foundation会自动渲染表单样式。你可以移除样式文件foundation.min.css来查看原生的HTML表单。</p>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(document).foundation();
+    })
+  </script>
+</body>
+</html>

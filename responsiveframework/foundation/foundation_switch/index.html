@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>foundation begin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-5.5.3/foundation.min.css">
+  <link rel="stylesheet" href="http://static.runoob.com/assets/foundation-icons/foundation-icons.css">
+  <script type="text/javascript" src="http://static.runoob.com/assets/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/foundation.min.js"></script>
+  <script type="text/javascript" src="http://static.runoob.com/assets/foundation-5.5.3/js/vendor/modernizr.js"></script>
+</head>
+<body>
+  
+  <div style="padding:20px">
+    <h2>开关</h2>
+    <p>可以在div中添加class="switch类，并添加input checkbox和label元素来创建开关"</p>
+    <form>
+      <div class="switch">
+        <input type="checkbox" id="mySwitch">
+        <label for="mySwitch"></label>
+      </div>
+    </form>
+  </div>
+  <div style="padding:20px">
+    <h2>开关大小</h2>
+    <p>使用<code>.large</code>，<code>.small</code>或<code>.tiny</code>类来设置开关的大小：</p>
+    <form>
+      <span>Large</span>
+      <div class="switch large">
+        <input type="checkbox" id="mySwitch1">
+        <label for="mySwitch1"></label>
+      </div>
+            <span>Default</span>
+      <div class="switch">
+        <input type="checkbox" id="mySwitch2">
+        <label for="mySwitch2"></label>
+      </div>
+      <span>Small</span>
+      <div class="switch small">
+        <input type="checkbox" id="mySwitch3">
+        <label for="mySwitch3"></label>
+      </div>
+            <span>Large</span>
+      <div class="switch tiny">
+        <input type="checkbox" id="mySwitch4">
+        <label for="mySwitch4"></label>
+      </div>
+    </form>
+  </div>
+  <div style="padding:20px">
+    <h2>圆角开关</h2>
+    <p>使用<code>.radius</code>和<code>.round</code>类来设置圆角开关：</p>
+    <form>
+      <span>默认</span>
+      <div class="switch">
+        <input type="checkbox" id="mySwitch5">
+        <label for="mySwitch5"></label>
+      </div>
+            <span>圆角</span>
+      <div class="switch radius">
+        <input type="checkbox" id="mySwitch6">
+        <label for="mySwitch6"></label>
+      </div>
+      <span>圆形</span>
+      <div class="switch round">
+        <input type="checkbox" id="mySwitch7">
+        <label for="mySwitch7"></label>
+      </div>
+    </form>
+  </div>
+  <div style="padding:20px">
+    <h2>开关组</h2>
+    <p>可以通过设置单选按钮（radio）来设置单个选项。<strong>注意：</strong>注意各个选项的<code>name</code>属性必须一致（实例中为“myGroup”）</p>
+    <form>
+      <div class="switch">
+        <input id="mySwitch8" type="radio" name="myGroup">
+        <label for="mySwitch8"></label>
+      </div>
+      <div class="switch">
+        <input id="mySwitch9" type="radio" checked name="myGroup">
+        <label for="mySwitch9"></label>
+      </div>
+      <div class="switch">
+        <input id="mySwitch10" type="radio" name="myGroup">
+        <label for="mySwitch10"></label>
+      </div>
+    </form>
+  </div>  
+  </script>
+</body>
+</html>
