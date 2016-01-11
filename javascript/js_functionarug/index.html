@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>native javascript </title>
+<meta charset="utf-8">
+</head>
+<body>
+  <p>设置函数参数默认值。</p>
+  <p id="demo01"></p>
+  <p>查找最大的数</p>
+  <p id="demo02"></p>
+  <p>计算所有参数的和</p>
+  <p id="demo03"></p>
+  <p>在HTML中<b>this</b>的值，在全局函数是一个window对象。</p>
+  <p id="demo04"></p>
+  <p>myObject.fullName()返回John Doe：</p>
+  <p id="demo05"></p>
+</body>
+
+<script type="text/javascript">
+  function myFunction01(x,y){
+    y=y||0;
+    return x*y;
+  }
+  document.getElementById('demo01').innerHTML=myFunction01(4);
+  
+  function findMax(){
+    var i,max=0;
+    for(i=0;i<arguments.length;i++){
+      if(arguments[i]>max){
+        max=arguments[i];
+      }
+    }
+    return max;
+  }
+  document.getElementById('demo02').innerHTML=findMax(4,5,6,100);
+  
+  function sumAll(){
+    var i,sum=0;
+    for(i=0;i<arguments.length;i++){
+      sum += arguments[i];
+    }
+    return sum;
+  }
+  document.getElementById('demo03').innerHTML=
+  sumAll(1,123,500,115,44,88);
+  
+  function myFunction02(){
+    return this;
+  }
+  document.getElementById('demo04').innerHTML=myFunction02();
+  
+  var myObject={
+    firstName:'John',
+    lastName:'Doe',
+    fullName:function(){
+      return this.firstName + ' ' + this.lastName + ' ' + this;
+    }
+  }
+  document.getElementById('demo05').innerHTML=myObject.fullName();
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

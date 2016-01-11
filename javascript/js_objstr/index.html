@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>javascript variable</title>
+<meta charset="utf-8">
+<script type="text/javascript">
+  var str='Hello world!';
+  document.write(str.match('world')+'<br>');
+  document.write(str.match('World')+'<br>');
+  document.write(str.match('world!')+'<br>');
+  
+  document.write('<p>'+str.toUpperCase()+'</p>');
+  document.write('<p>'+str.toLowerCase()+'</p>');
+  document.write('<p>'+str+'</p>');
+</script>
+</head>
+<body>
+  <p>替换“Microsoft”为“W3cSchool”：</p>
+  <button onclick="myFunction01()">点我</button>
+  <p id="demo01">Please visit Microsoft</p>
+  <p id="demo02">Click button to display the array values after split</p>
+  <button onclick="myFunction02()">Try it</button>
+  <script type="text/javascript">
+    function myFunction01(){
+      var str=document.getElementById('demo01').innerHTML;
+      var txt=str.replace('Microsoft','W3cSchool');
+      document.getElementById('demo01').innerHTML=txt;
+    }
+    
+    function myFunction02(){
+      var str='a,b,c,d,e,f,g';
+      var n=str.split(',');
+      alert(n.constructor);
+    }
+  </script>
+</body>
+</html>

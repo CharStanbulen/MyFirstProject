@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>javascript variable</title>
+<meta charset="utf-8">
+</head>
+<body>
+  
+  <p id="demo01"></p>
+  <input type="button" value="加载新文档" onclick="newDoc()">
+  <br>
+  <p>Click the button to display a confirm box.</p>
+  <button onclick="myfunction01();">Try it</button>
+  <p id="demo02"></p>
+  <p>点击我查看输入对话框。</p>
+  <button onclick="myfunction02();">点我</button>
+  <p id="demo03"></p>
+  <p>A script on this page starts this clocks：</p>
+  <p id="demo04"></p>
+  <button onclick="myStopFunction();">Stop time</button>
+  <br />
+  <p>Click the button to wait 3 seconds,then alert "hello"</p>
+  <button onclick="myFunction03()">Try it</button>
+  <br />
+  <p>Click the first button alert "hello" afrer waiting 3 seconds.</p>
+  <p>Click the second button to prevent the first to execute.(You must click it before the 3 seconds are up)</p>
+  <button onclick="myFunction04()">Try it</button>
+  <button onclick="myStopFunction01()">Stop the alert</button>
+  <br />
+<script type="text/javascript">
+    document.write('Avaiable Width：'+screen.availWidth + '<br>' + 'Available Height：' + screen.availHeight + '<br />');
+    var w=window.innerWidth
+    || document.documentElement.clientWidth
+    || document.body.clientWidth;
+    
+    var h=window.innerHeight
+    || document.documentElement.clientHeight
+    || document.body.clientHeight;
+    
+    x=document.getElementById('demo01');
+    x.innerHTML='Browser innner window width:' + w + '，height:' + h + '.';
+    
+    function newDoc(){
+      window.location.assign('http://www.w3cschool.cc');
+    }
+    
+    function myfunction01(){
+      var x;
+      var r=confirm("Press a button");
+      if(r==true){
+        x='You pressed OK!';
+      }else{
+        x='You pressed Cancel!';
+      };
+      document.getElementById('demo02').innerHTML=x;
+    }
+    
+    function myfunction02(){
+      var x;
+      var person=prompt('请输入你的名字','Harry Potter');
+      
+      if(person!=null){
+        x='你好' + person + '！今天感觉如何？';
+        document.getElementById('demo03').innerHTML=x;
+      }
+    };
+    
+    var myVar=setInterval(function(){myTimer()},1000);
+    function myTimer(){
+      var d=new Date();
+      var t=d.toLocaleTimeString();
+      document.getElementById('demo04').innerHTML=t;
+    }
+    function myStopFunction(){
+      clearInterval(myVar);
+    }
+    
+    function myFunction03(){
+      setTimeout(function(){
+        alert('Hello');
+      },3000)
+    }
+    var myVar01;
+    function myFunction04(){
+      myVar01=setTimeout(function(){
+        alert('Hello');
+      },3000)
+    };
+    function myStopFunction01(){
+      clearTimeout(myVar01);
+    }
+</script>
+</body>
+</html>
