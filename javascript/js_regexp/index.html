@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<title>native javascript </title>
+<meta charset="utf-8">
+<body>
+  <p>搜索字符串“w3cSchool”，并显示匹配的起始位置：</p>
+  <button onclick="myFunction01();">点我</button>
+  <p id="demo01"></p>
+  <p>替换“microsoft”为“W3cSchool”：</p>
+  <button onclick="myFunction02();">点我</button>
+  <p id="demo02">Please visit Microsoft!</p>
+</body>
+<script type="text/javascript">
+  function myFunction01(){
+    var str="Visit W3cSchool!";
+    var n=str.search(/w3cSchool/i);
+    document.getElementById('demo01').innerHTML=n;
+  }
+  
+  function myFunction02(){
+    var str=document.getElementById('demo02').innerHTML;
+    var txt=str.replace(/microsoft/i,'W3cSchool');
+    document.getElementById('demo02').innerHTML=txt;
+  }
+  
+  var patt1=new RegExp('e');
+  document.write(/e/.test('The best things in life are free') + '<br>');
+  
+  document.write(/e/.exec('The best things in life are free'));
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>native javascript </title>
+<meta charset="utf-8">
+</head>
+<body>
+<!--if the function validateForm's return value is false,the form will not be submit-->
+<form name="myForm" action="demo-form.php" onsubmit="return validateForm();" method="post">
+姓：<input type="text" name="fname">
+<input type="submit" value="提交">
+</form>
+<form name="myForm01" action="demo-form.php" onsubmit="return validateEmail();" method="post">
+Email：<input type="text" name="email">
+<input type="submit" value="提交">
+</form>
+<script type="text/javascript">
+function validateForm(){
+  var x=document.forms['myForm']['fname'].value;
+  if(x==null||x==''){
+    alert('必须填写姓名！');
+    return false;
+  }
+}
+
+function validateEmail(){
+  var x=document.forms['myForm01']['email'].value;
+  var atpos=x.indexOf('@');
+  var dotpos=x.lastIndexOf('.');
+  if(atpos<1||dotpos<atpos+2||dotpos+2>x.length){
+    alert('Not a valid e-mail address');
+    return false;
+  }
+}
+</script>
+</body>
+</html>
+

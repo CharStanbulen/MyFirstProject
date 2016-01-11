@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<title>native javascript </title>
+<meta charset="utf-8">
+<body>
+<p>typeof 操作符返回变量、对象、函数、表达式的类型。</p>
+<p id="demo"></p>
+<p>constructor属性返回变量或对象的构造函数</p>
+<p id="demo01"></p>
+<p>判断是否为数组</p>
+<p id="demo02"></p>
+<p>判断是否为日期</p>
+<p id="demo03"></p>
+<p>String()方法可以将数字转换为字符串。</p>
+<p id="demo04"></p>
+<p>toString()方法将数字转换为字符串。</p>
+<p id="demo05"></p>
+<p>typeof 操作符返回变量或表达式的类型。</p>
+<button onclick="myFunction();">点我</button>
+<p id="demo06"></p>
+</body>
+
+<script type="text/javascript">
+  document.getElementById('demo').innerHTML=
+  typeof 'john' + '<br>' +
+  typeof 3.14 + '<br>' +
+  typeof NaN + '<br>' +
+  typeof false + '<br>' +
+  typeof [1,2,3,4] + '<br>' +
+  typeof {name:'john',age:34} + '<br>' +
+  typeof new Date() + '<br>' +
+  typeof function(){} + '<br>' +
+  typeof myCar + '<br>' +
+  typeof null;
+  
+  document.getElementById('demo01').innerHTML=
+  'john'.constructor + '<br />' +
+  (3.14).constructor + '<br />' +
+  false.constructor + '<br />' +
+  [1,2,3,4].constructor + '<br />' +
+  {name:'john',age:34}.constructor + '<br />' +
+  new Date().constructor + '<br />' +
+  function(){}.constructor;
+  
+  var fruits=['Banner','Orange','Apple','Mango'];
+  document.getElementById('demo02').innerHTML= isArray(fruits);
+  
+  function isArray(myArray){
+    return myArray.constructor.toString().indexOf("Array") > -1;
+  }
+  
+  var myDate=new Date();
+  document.getElementById('demo03').innerHTML= isDate(myDate);
+  
+  function isDate(myDate){
+    return myDate.constructor.toString().indexOf("Date") > -1;
+  }
+  
+  var x=123;
+  document.getElementById('demo04').innerHTML=
+  String(x) + '<br>' +
+  String(123) + '<br>' +
+  String(100 + 23);
+  
+  var y=123;
+  document.getElementById('demo05').innerHTML=
+  (y).toString() + '<br>' +
+  (123).toString() + '<br>' +
+  (100 + 23).toString();
+  
+  function myFunction(){
+    var y="5";
+    var x=+y;
+    document.getElementById('demo06').innerHTML=
+    typeof y + '<br>' + typeof x;
+  }
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
