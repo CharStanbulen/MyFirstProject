@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>javascript array</title>
+<meta charset="utf-8">
+<script type="text/javascript">
+  function myFunction01(){
+    var hege=['Cecilie','Lone'];
+    var stale=['Emil','Tobias','Linus'];
+    var children=hege.concat(stale);
+    var x=document.getElementById('demo01');
+    x.innerHTML=children;
+  }
+  var parents=['Jani','Tove'];
+  var brother=['Stale','Kai Jim','Borge'];
+  var children=['Cecilie','Lone'];
+  var family=parents.concat(brother,children);
+  document.write(family);
+  
+  function myFunction02(){
+    var fruits=['Banana','Orange','Apple','Mango'];
+    var x=document.getElementById('demo02');
+    x.innerHTML=fruits.join();
+  }
+
+  function myFunction03(){
+    var fruits=['Banana','Orange','Apple','Mango'];
+    fruits.push('kiwi');
+    var x=document.getElementById('demo03');
+    x.innerHTML=fruits.join();
+  }
+  
+  function myFunction04(){
+    var fruits=['Banana','Orange','Apple','Mango'];
+    fruits.pop();
+    var x=document.getElementById('demo04');
+    x.innerHTML=fruits.join();
+  }
+  
+    function myFunction05(){
+    var fruits=['Banana','Orange','Apple','Mango'];
+    fruits.shift();
+    var x=document.getElementById('demo05');
+    x.innerHTML=fruits.join();
+  }
+  
+    function myFunction06(){
+    var fruits=['Banana','Orange','Apple','Mango'];
+    fruits.reverse();
+    var x=document.getElementById('demo06');
+    x.innerHTML=fruits.join();
+  }
+  
+  function myFunction07(){
+    var fruits=['Banana','Orange','Apple','Mango'];
+    var citrus=fruits.slice(1,3);
+    var x=document.getElementById('demo07');
+    x.innerHTML=citrus.join();
+    }
+    
+    function myFunction08(){
+    var fruits=['Banana','Orange','Apple','Mango'];
+    fruits.sort();
+    var x=document.getElementById('demo08');
+    x.innerHTML=fruits.join();
+    }
+    
+    function myFunction09(){
+      var points=[40,100,1,5,25,10];
+      points.sort(function(a,b){return a-b});
+      var x=document.getElementById('demo09');
+      x.innerHTML=points.join();
+    }
+    function myFunction10(){
+      var points=[40,100,1,5,25,10];
+      points.sort(function(a,b){return b-a});
+      var x=document.getElementById('demo10');
+      x.innerHTML=points.join();
+    }
+    
+    function myFunction11(){
+      var fruits=['Banana','Orange','Apple','Mango'];
+      fruits.splice(2,0,'Lemo','Kiwi')
+      var x=document.getElementById('demo11');
+      x.innerHTML=fruits.toString();
+    }
+</script>
+</head>
+<body>
+<p id="demo01">点击我合并数组。</p>
+<button onclick="myFunction01();">点我</button>
+<p id="demo02">Click the button to join the array elements into a  string</p>
+<button onclick="myFunction02();">Try it</button>
+<p id="demo03">Click the button to add a new element to the array.</p>
+<button onclick="myFunction03();">Try it</button>
+<p id="demo04">Click the button to remove the last array element.</p>
+<button onclick="myFunction04();">Try it</button>
+<p id="demo05">Click the button to remove the first array element.</p>
+<button onclick="myFunction05();">Try it</button>
+<p id="demo06">Click the button to reverse the order of the elements in the array.</p>
+<button onclick="myFunction06();">Try it</button>
+<p id="demo07">Click the button to extract the second and the third elements frome the array.</p>
+<button onclick="myFunction07();">Try it</button>
+<p id="demo08">Click the button to sort the array.</p>
+<button onclick="myFunction08();">Try it</button>
+<p id="demo09">Click the button to sort the array.</p>
+<button onclick="myFunction09();">Try it</button>
+<p id="demo10">Click the button to sort the array.</p>
+<button onclick="myFunction10();">Try it</button>
+<p id="demo11">Click the button to sort the array.</p>
+<button onclick="myFunction11();">Try it</button>
+</body>
+</html>
