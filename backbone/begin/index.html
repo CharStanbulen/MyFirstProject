@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Underscore begin</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/underscore.js"></script>
+<script type="text/javascript" src="js/backbone.js"></script>
+<script type="text/javascript">
+  $(function(){
+   window.Test=Backbone.Model.extend({
+    default:{
+      content:''
+    }
+   });
+   window.TestList=Backbone.Collection.extend({
+    model:Test
+   });
+   var data=new TestList({
+    content:'hello,backbone!'
+   });
+   window.TestView=Backbone.View.extend({
+    el:$('body'),
+    initialize:function(){
+      $('#divTip01')
+      .html(data.models[0].get('content'));
+    }
+   });
+   
+   window.App=new TestView;
+  });
+</script>
+</head>
+
+<body>
+  <div id="divTip">点击我</div>
+  <div id="divTip01"></div>
+  <script type="text/javascript">
+    var divView={
+      ele:'#divTip',
+      tip:'hello,underscore!',
+      onClick:function(){
+        $(this.ele).html(this.tip);
+      }
+    };
+    _.bindAll(divView,'onClick');
+    $(divView.ele).bind('click',divView.onClick);
+  </script>
+</body>
+
+</html>

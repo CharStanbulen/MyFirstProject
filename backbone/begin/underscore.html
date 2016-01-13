@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Underscore begin</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/underscore.js"></script>
+<script type="text/javascript" src="js/backbone.js"></script>
+<script type="text/javascript">
+  var data={
+    name:'Char',
+    email:'914189130@qq.com'
+  }
+  //get underscore object
+  var object=_(data);
+  //convert underscore object to native javascript by value() method
+  console.log(object.value().name+"_"+object.value().email);
+  //use underscore method to underscore object
+  var arr=[15,26,37];
+  var obj=_(arr);
+  console.log("max:"+obj.max()+" min:"+obj.min());
+  
+  _.each([1,2,3,4,5,6],function(n){if(!(n%2)) console.log(n);});
+  
+  var arr=_.map([1,2,3,4,5,6],function(n){
+    if(!(n%2)) return n;
+  });
+  for(var i=0;i<arr.length;i++){
+    if(arr[i]!=undefined)
+    console.log(i + '->' + arr[i]);
+  }
+  
+  var obj={
+    a:'1',
+    b:'2',
+    c:'3'
+  }
+  _.each(obj,function(v,k,obj){
+    return console.log(k+"->"+v);
+  })
+  
+  var blnfind=_.find([2,4,6,8,10,12],function(n){
+    return (!(n%2==0));
+  });
+  console.log(blnfind != undefined ? blnfind : '未找到');
+  
+  var arrfind=_.filter([1,4,3,6,5,8],function(n){
+    return (!(n%2==0));
+  });
+  console.log(arrfind.length!=0 ? arrfind : '未找到');
+  
+  var stu01=[
+    {name:'张三',score:60},
+    {name:'李四',score:40},
+    {name:'王五',score:80}
+  ];
+  var min=_.min(stu01,function(n){
+    return n.score;
+  });
+  console.log('最小分数值姓名位：'+min.name);
+  
+  var stu02=[
+    {name:'张三',score:60},
+    {name:'李四',score:40},
+    {name:'王五',score:80}
+  ];
+  
+  var sort=_.sortBy(stu02,function(n){
+    return n.score;
+  })
+  for (var p in sort)
+  console.log(sort[p].name+'->'+sort[p].score);
+  
+  var stu03=[
+    {name:'张三',score:60},
+    {name:'李四',score:40},
+    {name:'王五',score:80}
+  ];
+  var group=_.groupBy(stu03,function(n){
+    return n.score>60;
+  });
+  console.log(group);
+  
+  var stu04=[
+    {name:'张三',score:60},
+    {name:'李四',score:40},
+    {name:'王五',score:80}
+  ];
+  var first=_.first(stu04,2);
+  console.log(first);
+  
+  var stu05=[
+    {name:'张三',score:60},
+    {name:'李四',score:40},
+    {name:'王五',score:80}
+  ];
+  var last=_.last(stu05,2);
+  console.log(last);
+  
+  var stu06=['张三','李四','王五'];
+  var find01=_.indexOf(stu06,'李四');
+  console.log(find01);
+  
+  var stu07=['李四','张三','李四','王五','李四'];
+  var find02=_.lastIndexOf(stu07,'李四',3);
+  console.log(find02);
+  
+  var newarr01=_.without([40,60,50,40,4],4,40);
+  console.log(newarr01);
+  
+  var newarr02=_.union([1,2,3],[3,4,5],[5,6,7]);
+  console.log(newarr02);
+  
+  var fun01=function(V){console.log('你输入的是：'+V);}
+  _.delay(fun01,1000,'underscore');
+  
+  var num02,str02;
+  var fun02=function(){
+    num02='0';
+    str02='1';
+    console.log('初始化成功！');
+  }
+  var init02=_.once(fun02);
+  init02();
+  console.log('初始化后值->num:'+num02+';str:'+str02);
+  
+  var input02=function(n,s){
+    return s ? n + '先生' : 'n' + '女士';
+  };
+  input02=_.wrap(input02,function(input02){
+    return '你好，'+input02('Char',1)+'，欢迎来到Backbone世界！'
+  })
+  console.log(input02());
+  
+  var A02=function(a1){return a1*a1;};
+  var B02=function(b1){return b1*b1;};
+  var C02=function(c1){return c1*c1;};
+  var D02=_.compose(A02,B02,C02);
+  console.log('最终结果为：'+D02(2));
+  
+  var info01={
+    name:'Char',
+    sex:'男',
+    email:'914189130@qq'
+  }
+  var arrkey01=_.keys(info01);
+  var arrvalue01=_.values(info01);
+  console.log(arrkey01);
+  console.log(arrvalue01);
+  
+  var data01={
+    A:1,
+    B:2,
+    C:3,
+    D:4
+  }
+  var newdata01=_.pick(data01,'B','C');
+  var newdata02=_.omit(data01,'B','C');
+  console.log(newdata01);
+  console.log(newdata02);
+  
+  var info02={};
+  info02=_.defaults(info02,{
+    name:'',
+    email:'914189130@qq.com'
+  });
+  info02.name='Char';
+  console.log(info02);
+  
+  var info03={
+    name:'Char',
+    sex:'男',
+    email:'914189130@qq'
+  };
+  var strShow01;
+  if(_.has(info03,'sex'))
+  strShow01=info03.sex;
+  else
+  strShow01='对象中不包含该属性！';
+  console.log(strShow01);
+  
+  var intdef01=_.random(10);
+  var intnum01=_.random(10,20);
+  console.log('两个随机数分别为：'+intdef01+','+intnum01);
+  
+  var stresc01=_.escape('email/163"tao"<guo>&rong_!~*');
+  var strrunesc01=_.unescape(stresc01);
+  console.log(stresc01);
+  console.log(strrunesc01);
+  
+  var tpl01=_.template('<%console.log(str)%>');
+  var tpl02=_.template('<%=str%>');
+  var tpl03=_.template('<%-str%>')
+  tpl01({str:'姓名：Char'});
+  console.log(tpl02({str:'姓名：Char'}));
+  console.log(tpl03({str:'姓/"名"&:<C>har'}));
+  
+  var data02=[1,2,3,4,5,6,7,8,9,10];
+  var find02=_.chain(data02)
+   .filter(function(num){return num%2==0;})
+   .without(data,2,10)
+   .last()
+   .value();
+   console.log('最终值为：'+find02);
+  </script>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+
+
+
+  <script type="text/javascript">
+
+  </script>
+</body>
+
+</html>
