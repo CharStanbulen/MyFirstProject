@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>backbone_bindevent</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/underscore.js"></script>
+<script type="text/javascript" src="js/backbone.js"></script>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+  var person=Backbone.Model.extend({
+    defaults:{
+      name:'',
+      sex:'女'
+    }
+  });
+  var man=new person();
+  man.on('change',function(){
+    console.log('对象的默认值发生了变化。');
+  });
+  man.on('change:sex',function(model,value){
+    console.log('您修改了性别属性值，最新值是：' + value);
+  });
+  man.set('sex','男');
+  
+  var person01=Backbone.Model.extend({
+    defaults:{
+      name:'',
+      sex:'女',
+      age:32,
+      score:120
+    }
+  });
+  var man01=new person01();
+  
+  man01.on('change:score',function(model,value){
+    var oldscore=model.previous('score');
+    if(value>oldscore)
+      console.log('您比上次进步了'+(value-oldscore)+'分');
+    else if(value<oldscore)
+      console.log('您比上次落后了'+(oldscore-value)+'分');
+    else
+      console.log('您的成绩没有变化');
+  });
+  man01.on('change:age',function(model,value){
+    var objAttr=model.previousAttributes();
+    var oldage=objAttr.age;
+    if(value>oldage)
+      console.log('您又年长了'+(value-oldage)+'岁');
+    else if(value<oldage)
+      console.log('您又年轻了'+(oldage-value)+'岁');
+    else
+      console.log('您的年龄没有变化');
+  });
+  man01.set({'age':36,'score':200});
+  
+  man02=new person01();
+  man02.on('change:score change:age',function(model,value){
+    var oldage=model.previous('age');
+    var newage=model.get('age');
+    if(oldage!=newage){
+      console.log('age原值：'+oldage+'，新值：'+newage);
+    }
+    var oldscore=model.previous('score');
+    var newscore=model.get('score');
+    if(oldscore!=newscore){
+      console.log('score原值：'+oldscore+'，新值：'+newscore);
+    }
+  });
+  man02.set('age',36);
+  man02.set('score',200);
+  
+  var man03=new person01();
+  var objEvent={
+    'change:score':score_change,
+    'change:age':age_change
+  }
+  man03.on(objEvent);
+  function score_change(model,value){
+    var oldscore=model.previous('score');
+    var newscore=model.get('score');
+    if(oldscore!=newscore){
+      console.log('score原值：'+oldscore+'，新值：'+newscore);
+    }
+  }
+  function age_change(model,value){
+    var oldage=model.previous('age');
+    var newage=model.get('age');
+    if(oldage!=newage){
+      console.log('age原值：'+oldage+'，新值：'+newage);
+    }
+  }
+  man03.set({'age':36,'score':200});
+  
+  var man04=new person01();
+  var intNum=0;
+  man04.once('change',function(){
+    intNum++;
+    console.log('事件触发的次数为'+intNum);
+  });
+  man04.set('age',36);
+  man04.set('age',37);
+  
+  var man05=new person01();
+  man05.on('change_age_sex',function(){
+    console.log('您手动触发了一个自定义事件');
+  });
+  man05.on('change:age',function(model,value){
+    if(value!=undefined){
+      console.log('您修改后的年龄为'+value);
+    }else{
+      console.log('您手动触发了了一个年龄修改事件');
+    }
+  });
+  man05.trigger('change_age_sex');
+  man05.trigger('change:age');
+  man05.set('age',37);
+  
+  var man06=new person();
+  var m01=0,n01=0;
+  var callback_a=function(){
+    m01++;
+    console.log('您执行a事件的次数为'+m01);
+  }
+  var callback_b=function(){
+    n01++;
+    console.log('您执行b事件的次数为'+n01);
+  }
+  man06.on('event_a',callback_a);
+  man06.on('event_b',callback_b);
+  man06.off('event_a');
+  man06.trigger('event_a event_b');
+  man06.off('event_a event_b');
+  man06.trigger('event_a event_b');
+  
+  var man07=new person01();
+  var obj=_.extend({},Backbone.Events);
+  obj.listenTo(man07,'change:age',function(model,velue){
+    var oldage=model.previous('age');
+    var newage=model.get('age');
+    if(oldage!=newage){
+      console.log('age原值：'+oldage+'，新值：'+newage);
+    }
+  })
+  man07.set('age',37);
+  
+  var man08=new person01();
+  var obj01=_.extend({},Backbone.Events);
+  obj01.listenTo(man08,'change:name',function(model,value){
+    console.log('姓名修改后的值为：'+value);
+  })
+  obj01.listenTo(man08,'change:age',function(model,value){
+    console.log('年龄修改后的值为：'+value);
+  })
+  obj01.listenTo(man08,'change:score',function(model,value){
+    console.log('分数修改后的值为：'+value);
+  })
+  obj01.stopListening(man08,'change:name');
+  man08.set('name','张三');
+  man08.set('age',88);
+  man08.set('score',600);
+  obj01.stopListening(man08,'change:name change:age');
+  man08.set('name','李四');
+  man08.set('age',77);
+  man08.set('score',500);
+  obj01.stopListening();
+  man08.set('name','忘我');
+  man08.set('age',66);
+  man08.set('score',400); 
+  
+  var man09=new person01();
+  man09.on('change:age',function(){
+    console.log('您触发了change:age事件');
+  })
+  var event_fun=function(){
+    console.log('您触发了change:name事件');
+  }
+  man09.on('change:name',event_fun);
+  man09.on('all',function(value){
+    console.log('您触发了all事件中'+value);
+  });
+  //man09.set('name','Char');
+  //man09.set('age',35);
+  man09.trigger('all');
+  
+  
+</script>
+</head>
+<body>
+  
+  
+  <div id="view">
+    <input type="button" value="显示" id="btnShow"/>
+    <input type="button" value="隐藏" id="btnHide"/>
+  </div>
+  <div id="Info">
+    姓 名：Char<br />
+    性 别：男<br />
+    邮 箱：91418913@qq.com
+  </div>
+  <script type="text/javascript">
+    var infoView=Backbone.View.extend({
+      el:'#view',
+      events:{
+        'click #btnShow':'ShowInfo',
+        'click #btnHide':'HideInfo'
+      },
+      ShowInfo:function(){
+        $('#Info').show();
+      },
+      HideInfo:function(){
+        $('#Info').hide();
+      }
+    });
+    var view = new infoView();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>backbone_model</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/underscore.js"></script>
+<script type="text/javascript" src="js/backbone.js"></script>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+  var student=Backbone.Model.extend({
+    initialize:function(){
+      intNum++;
+      console.log('您构建了'+intNum+'个对象');
+    }
+  });
+  var intNum=0;
+  var stuA=new student();
+  var stuB=new student();
+  
+  var student01=Backbone.Model.extend({
+    initialize:function(){
+    
+    },
+    defaults:{
+      Code:'',
+      Name:'',
+      Score:''
+    }
+  });
+  var stu01=new student01();
+  stu01.set({
+      Code:'10101',
+      Name:'Char',
+      Score:'300',
+      Class:'一年级<二>班'
+  });
+  console.log(stu01.get('Name')+"在"+
+  stu01.get('Class')+'读小学');
+  console.log(stu01.escape('Name')+"在"+
+  stu01.escape('Class')+'读小学');
+  
+  var student02=Backbone.Model.extend({
+    initialize:function(){
+    
+    },
+    defaults:{
+      Code:'',
+      Name:'',
+      Score:''
+    },
+    PrintLog:function(){
+      console.log(this.get('Name')+"在"+
+      this.get('Class')+'读小学');
+      console.log(this.escape('Name')+"在"+
+      this.escape('Class')+'读小学');
+    }
+  });
+  var stu02=new student02();
+  stu02.set({
+      Code:'10101',
+      Name:'Char',
+      Score:'300',
+      Class:'一年级<二>班'
+  });
+  stu02.PrintLog();
+  
+  var student03=Backbone.Model.extend({
+    initialize:function(){
+      this.on('change:Name',function(){
+        var oldname=this.previous('Name');
+        var newname=this.get('Name');
+        if(oldname!=newname){
+          console.log('Name原值：'+oldname+"，新值："+newname);
+        }
+      })
+    },
+    defaults:{
+      Code:'',
+      Name:'Char',
+      Score:''
+    }
+  });
+  var stu03=new student03();
+  stu03.set('Name','CharStanbulen');
+  
+  var student04=Backbone.Model.extend({
+    initialize:function(){
+      this.on('invalid',function(model,error){
+        console.log(error);
+      });
+    },
+    validate:function(attrs){
+      if(!_.isString(attrs.Name)) return '姓名必须是字符！'
+      if(!_.isNumber(attrs.Score)) return '分数必须是数字！'
+    },
+    defaults:{
+      Code:'10001',
+      Name:'Char',
+      Score:100
+    }
+  })
+  var stu04=new student04();
+  stu04.set({
+    Code:'11111',
+    Name:'1111',
+    Score:'111'
+  },{'silent':true});
+  console.log(stu04.toJSON());
+  
+  var student05=Backbone.Model.extend({
+    initialize:function(){
+      this.on('invalid',function(model,error){
+        console.log(error);
+      });
+      this.on('change:Name',function(model,value){
+        console.log('您触发了Name属性修改事件！');
+      });
+    },
+    validate:function(attrs){
+      if(!_.isString(attrs.Name)) return '姓名必须是字符！'
+      if(!_.isNumber(attrs.Score)) return '分数必须是数字！'
+    },
+    defaults:{
+      Code:'10001',
+      Name:'Char',
+      Score:100
+    }
+  })
+  var stu05=new student05();
+  stu05.set({
+    Code:'10001',
+    Name:'Char',
+    Score:'100'
+  },{'silent':true});
+  console.log(stu05.toJSON());
+  if(!_.isString(stu05.get('Name'))||!_.isNumber(stu05.get('Score'))){
+    stu05.set({
+      'Name':stu05.previous('Name'),
+      'Score':stu05.previous('Score')
+    })
+  }
+  console.log(stu05.toJSON());
+  
+  var stu06=new student05();
+  stu06.set({
+    Code:'10001',
+    Name:'Char',
+    Score:'100'
+  });
+  stu06.unset('Name');
+  console.log(stu06.get('Name'));
+  console.log(stu06.toJSON());
+  stu06.set('Name',stu06.previous('Name'));
+  console.log(stu06.toJSON());
+  
+  stu06.clear();
+  console.log(stu06.toJSON());
+  
+  var student07=Backbone.Model.extend({
+    initialize:function(){
+    
+    },
+    defaults:{
+      Code:'10001',
+      Name:'Char',
+      Score:100
+    }
+  });
+  var stu07=new student07();
+  stu07.set({
+      Code:'10002',
+      Name:'Char1',
+      Score:99
+  });
+  console.log(stu07.attributes);
+  var attrs07=stu07.attributes;
+  for(var i in attrs07){
+    console.log(i+':'+attrs07[i]);
+  }
+  
+  var student08=Backbone.Model.extend({
+    initialize:function(){
+    
+    },
+    defaults:{
+      Code:'10002',
+      Name:'Char1',
+      Score:99
+    }
+  });
+  var stu08=new student08();
+  stu08.set({
+      Code:'10001',
+      Name:'Char0',
+      Score:98
+  });
+  console.log(stu08.toJSON());
+  console.log(stu08.previousAttributes());
+  console.log('-----------');
+  stu08.set({
+      Code:'10097',
+      Name:'Char97',
+      Score:97
+  });
+  console.log(stu08.toJSON());
+  console.log(stu08.previousAttributes());
+  
+  var student09=Backbone.Model.extend({
+    initialize:function(){
+    
+    },
+    url:'/Ch4/api/save.php',
+    defaults:{
+      Code:'10097',
+      Name:'Char97',
+      Score:97
+    }
+  });
+  var stu09=new student09();
+  stu09.set({
+      Code:'10001',
+      Name:'Char0',
+      Score:98
+  });
+  stu09.save();
+</script>
+</head>
+<body>
+  
+  
+  <script type="text/javascript">
+    
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
