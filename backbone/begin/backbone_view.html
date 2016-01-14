@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>backbone_view</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/underscore.js"></script>
+<script type="text/javascript" src="js/backbone.js"></script>
+<style type="text/css">
+  .changed{
+    border:1px solid #555;
+  }
+</style>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+  <div id="show01" class="cls_01"></div>
+  <div id="show02" class="cls_02"></div>
+  <div id="show03" class="cls_03"></div>
+  <div id="score01"></div>
+  <ul id="ulshowstus01"></ul>
+  <div id="main"></div>
+  <div id="main01"></div>
+  <script type="text/template" id="main01-tpl">
+    <div id="backbone02">Char是顶级的前端天才工程师</div>
+    <input id="btn_a" type="button" value="切换样式">
+    <input id="btn_b" type="button" value="取消绑定">
+    <input id="btn_c" type="button" value="重新绑定" onclick="stuv07.rebind()">
+  </script>
+  <script type="text/template" id="main-tpl">
+    <div id="backbone01">{{mess}}</div>
+    <input id="btnshow" type="button" value="点击一下">
+  </script>
+  <script type="text/template" id="stus-tpl">
+    <li>编号：{{Code}}</li>
+    <li>姓名：{{Name}}</li>
+    <li>分数：{{Score}}</li>
+  </script>
+  <script type="text/template" id="score-tpl">
+    <%= score>600 ? '优秀' : '及格'%>
+  </script>
+  <script type="text/javascript">
+    var testView01=Backbone.View.extend({
+      id:'show',
+      className:'cls_6',
+      render:function(content){
+        this.el.innerHTML=content;
+        document.body.appendChild(this.el);
+      },
+      attributes:{
+        title:'Talent',
+        style:'border:solid 1px #555;'
+      }
+    });
+    var test01=new testView01();
+    test01.render('backbone是构建前端MVC的利器');
+    
+    var testview02=Backbone.View.extend({
+      el:'#show01',
+      render:function(content){
+        this.el.innerHTML=content;
+      }
+    });
+    var test02=new testview02();
+    test02.render('我是天才前端工程师Char！');
+    
+    var student01=Backbone.Model.extend({
+      defaults:{
+        Code:'',
+        Name:'',
+        Score:0
+      }
+    });
+    var stus01=new student01({
+        Code:'10107',
+        Name:'Char',
+        Score:750
+    });
+    var stusview01=Backbone.View.extend({
+      el:'#show02',
+      render:function(){
+        this.el.innerHTML=JSON.stringify(this.model);
+      }
+    });
+    var stuv01=new stusview01({
+      model:stus01
+    });
+    stuv01.render();
+    
+    var stumodels01=[{
+      Code:'10101',
+      Name:'Char01',
+      Score:530
+    },{
+      Code:'10102',
+      Name:'Char02',
+      Score:460
+    },{
+      Code:'10103',
+      Name:'Char03',
+      Score:660
+    },{
+      Code:'10104',
+      Name:'Char04',
+      Score:500
+    }];
+    var stulist01=new Backbone.Collection(stumodels01);
+    var stuview01=Backbone.View.extend({
+      el:'#show03',
+      render:function(){
+        var curlist=this.collection.models;
+        for(var i=0;i<curlist.length;i++){
+          this.el.innerHTML+=JSON.stringify(curlist[i])+'<br>'
+        }
+      }
+    });
+    
+    var stuv02=new stuview01({collection:stulist01});
+    stuv02.render();
+    
+    var stuview02=Backbone.View.extend({
+      el:$('#score01'),
+      initialize:function(){
+        this.template=_.template($('#score-tpl').html())
+      },
+      render:function(pscore){
+        this.$el.html(this.template({score:pscore}))
+      }
+    });
+    var stuv03=new stuview02();
+    stuv03.render(700);
+    
+    _.templateSettings={
+      interpolate:/\{\{(.+?)\}\}/g
+    };
+    var student02=Backbone.Model.extend({
+      defaults:{
+        Code:'',
+        Name:'',
+        Score:0
+      }
+    });
+    var stus02=new student02({
+        Code:'10107',
+        Name:'Char',
+        Score:750
+    });
+    var stuview03=Backbone.View.extend({
+      el:$('#ulshowstus01'),
+      initialize:function(){
+        this.template=_.template($('#stus-tpl').html());
+      },
+      render:function(){
+       this.$el.html(this.template(this.model.toJSON()));
+      }
+    });
+    var stuv04=new stuview03({model:stus02});
+    stuv04.render();
+    
+    var stuview04=Backbone.View.extend({
+      el:$('body'),
+      initialize:function(){
+        this.$el.append('<div id="backbone">Char是一位伟大的前端工程师</div>')
+      },
+      events:{
+        'click div#backbone':'togcls'
+      },
+      togcls:function(){
+        $('#backbone').toggleClass('changed');
+      }
+    });
+    var stuv05=new stuview04();
+    
+    var stuview05=Backbone.View.extend({
+      el:$('#main'),
+      initialize:function(){
+        this.template=_.template($('#main-tpl').html());
+        this.render();
+      },
+      render:function(){
+        this.$el.html(this.template({
+          mess:'Char是无敌的！'
+        }))
+      },
+      events:{
+        'click div#backbone01':'togcls',
+        'click input#btnshow':'toggle'
+      },
+      togcls:function(){
+        $('#backbone01').toggleClass('changed');
+      },
+      toggle:function(){
+        $('#backbone01').toggle();
+      }
+    });
+    var stuv06=new stuview05();
+    var stuv07=null;
+    var stuview06=Backbone.View.extend({
+      el:$('#main01'),
+      initialize:function(){
+        this.template=_.template($('#main01-tpl').html());
+        this.render();
+      },
+      render:function(){
+          this.$el.html(this.template());
+      },
+      rebind:function(){
+        this.delegateEvents(this.events);
+      },
+      events:{
+        'click input#btn_a':'bindclick_a',
+        'click input#btn_b':'bindclick_b'
+      },
+      bindclick_a:function(){
+        $('#backbone02').toggleClass('changed')
+      },
+      bindclick_b:function(){
+        this.undelegateEvents();
+      }
+    });
+    stuv07=new stuview06();
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

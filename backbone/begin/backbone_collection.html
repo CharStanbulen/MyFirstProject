@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>backbone_collection</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/underscore.js"></script>
+<script type="text/javascript" src="js/backbone.js"></script>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+  var student01=Backbone.Model.extend({
+    defaults:{
+      Code:'',
+      Name:'',
+      Score:''
+    },
+    idAttribute:'Code'
+  });
+  var stulist01=Backbone.Collection.extend({
+    model:student01
+  });
+  var stumodels01=[{
+      Code:'001',
+      Name:'Char01',
+      Score:500
+  },{
+      Code:'002',
+      Name:'Char02',
+      Score:300
+  },{
+      Code:'003',
+      Name:'Char03',
+      Score:720
+  }];
+  var stus01=new stulist01(stumodels01);
+  for(var i=0;i<stus01.models.length;i++){
+    console.log(stus01.models[i].toJSON());
+  };
+  
+  var stus02=new Backbone.Collection(stumodels01,{
+    model:student01
+  });
+  for(var i=0;i<stus02.models.length;i++){
+    console.log(stus02.models[i].toJSON());
+  };
+  
+  var stulist02=Backbone.Collection.extend({
+    model:student01,
+    good:function(){
+      return this.filter(function(a){
+        return a.get('Score')>400;
+      });
+    }
+  });
+  var stus03=new stulist02(stumodels01);
+  var stug01=stus03.good();
+  for(var i=0;i<stug01.length;i++){
+    console.log(stug01[i].toJSON());
+  };
+  var stumodels02=[{
+      Code:'001',
+      Name:'Char01',
+      Score:530
+  },{
+      Code:'002',
+      Name:'Char02',
+      Score:660
+  },{
+      Code:'003',
+      Name:'Char03',
+      Score:660
+  },{
+      Code:'004',
+      Name:'Char03',
+      Score:500
+  },{
+      Code:'005',
+      Name:'Char03',
+      Score:300
+  },{
+      Code:'006',
+      Name:'Char03',
+      Score:380
+  },{
+      Code:'007',
+      Name:'Char03',
+      Score:720
+  }];
+  
+  var stus04=new Backbone.Collection(stumodels02,{
+    model:student01
+  });
+  stus04.shift();
+  stus04.remove(stus04.models[3]);
+  stus04.pop();
+  for(var i=0;i<stus04.models.length;i++){
+    console.log(stus04.models[i].toJSON());
+  };
+  var newmodels=[{
+      Code:'008',
+      Name:'Char03',
+      Score:720
+  },{
+      Code:'009',
+      Name:'Char03',
+      Score:720
+  },{
+      Code:'010',
+      Name:'Char03',
+      Score:720
+  }];
+  var stus05=new Backbone.Collection(stumodels02,{
+    model:student01
+  });
+  stus05.unshift(newmodels[1]);
+  stus05.add(newmodels[0],{at:5});
+  stus05.push(newmodels[2]);
+  for(var i=0;i<stus05.models.length;i++){
+    console.log(stus05.models[i].toJSON());
+  };
+  
+  var stus06=new Backbone.Collection(stumodels02,{
+    model:student01
+  });
+  console.log('--------------------------------------');
+  for(var i=0;i<stus06.models.length;i++){
+    console.log(stus06.models[i].toJSON());
+  };
+  var find_id_model=stus06.get('003');
+  var find_at_model=stus06.at(5);
+  var find_0_model=stus06.findWhere({
+    Score:300
+  });
+  var find_1_model=stus06.where({
+    Score:300
+  },true);
+  var find_2_model=stus06.where({
+    Score:300
+  },false);
+  console.log('-----------------查询结果---------------------');
+  console.log(find_id_model.toJSON());
+  console.log(find_at_model.toJSON());
+  console.log(find_0_model.toJSON());
+  console.log(find_1_model.toJSON());
+  for(var i=0;i<find_2_model.length;i++){
+    console.log(find_2_model[i].toJSON());
+  };
+  console.log('-------------------------------------------');
+  var stus08=new Backbone.Collection(stumodels02,{
+    model:student01,
+    comparator:function(model_1,model_2){
+      var intcomp=model_1.get('Score')>
+      model_2.get('Score');
+      return intcomp ? 0 : 1;
+    }
+  })
+  stus08.sort();
+  for(var i=0;i<stus08.models.length;i++){
+    console.log(stus08.models[i].toJSON());
+  };
+  stus08.remove(stus08.models[3]);
+  stus08.add({
+    Code:'10108',
+    Name:'Char008',
+    Score:570
+  })
+  console.log('----------排序后结果-----------')
+  for(var i=0;i<stus08.models.length;i++){
+    console.log(stus08.models[i].toJSON());
+  };
+</script>
+</head>
+<body>
+  
+  
+  <script type="text/javascript">
+    
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
