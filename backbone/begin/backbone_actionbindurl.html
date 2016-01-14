@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>backbone_actionbindurl</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/underscore.js"></script>
+<script type="text/javascript" src="js/backbone.js"></script>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+  <div>
+    <a href="">首页</a> | 
+    <a href="#search">查询列表</a> | 
+    <a href="#search/abc">关键词查询</a> | 
+    <a href="#search/abc/p2">页码关键字查询</a> | 
+    <a href="#abc/p5">其他页</a>
+
+  </div>
+  <div id="divShow"></div>
+  <script type="text/javascript">
+    var $divShow=$('#divShow');
+    var testrouter=Backbone.Router.extend({
+      routes:{
+      /*
+        '':'main',
+        'search':'search_list',
+        'search/:key':'search_key',
+        'search/:key/p:page':'search_key_page',
+        '*search':'search_default'
+     */
+      '*path/p:page':'search_other'
+      },
+      search_other:function(path,page){
+        $('#divShow').html('路径名为'+path+'，页码为'+page);
+      },
+      main:function(){
+        $divShow.html('首页');
+      },
+      search_list:function(){
+        $divShow.html('查询列表');
+      },
+      search_key:function(key){
+        $divShow.html('查询的关键词为'+key+'记录');
+      },
+      search_key_page:function(key,page){
+        $divShow.html('查询的关键词为'+key+'记录，页码为'+page);
+      },
+      search_default:function(){
+        $divShow.html('其他页');
+      }
+    });
+    var router=new testrouter();
+    Backbone.history.start();
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

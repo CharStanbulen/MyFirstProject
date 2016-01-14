@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>backbone_historyguide</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/underscore.js"></script>
+<script type="text/javascript" src="js/backbone.js"></script>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+  <div>记录总量：<span id="divNum"></span></div>
+  <div>刷新前：<span id="divShow"></span></div>
+  <script type="text/javascript">
+    var obj_a_state={
+      Code:'10107',
+      Name:'Char',
+      Score:750
+    };
+    window.history.pushState(obj_a_state,'HTML5中history API方法','backbone_historyguideh5b.html');
+    document.getElementById('divNum').innerHTML=history.length;
+    document.getElementById('divShow').innerHTML=
+    JSON.stringify(window.history.state);
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

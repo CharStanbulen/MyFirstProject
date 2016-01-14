@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>backbone_location</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/underscore.js"></script>
+<script type="text/javascript" src="js/backbone.js"></script>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+
+  <div id="divShow"></div>
+  <input id="btnreload" type="button" value="重载" onclick="window.location.reload();">
+  <input id="btnreplace" type="button" value="替换" onclick="window.location.replace('http://www.sina.com.cn');">
+  <script type="text/javascript">
+    var $HTML='';
+    var $obj_w=window.location;
+    for(var idx in $obj_w){
+     $HTML += '<b>'+idx+':</b>'+$obj_w[idx]+'<br>' ;
+    }
+    document.getElementById('divShow').innerHTML=$HTML;
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

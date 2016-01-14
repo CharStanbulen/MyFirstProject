@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>backbone_historystop</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/underscore.js"></script>
+<script type="text/javascript" src="js/backbone.js"></script>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+  <div id="divShow01"></div>
+  <input type="button" id="btnStop" value="停止">
+  <script type="text/javascript">
+    var $divShow01=$('#divShow01');
+    var testrouter01=Backbone.Router.extend({
+      routes:{
+        'search02/:key':'search2_key',
+        'search03/:key':'search3_key'
+      },
+      search2_key:function(key){
+        $divShow01.html('查询2关键字为'+key+'记录');
+      },
+      search3_key:function(key){
+        $divShow01.html('查询3关键字为'+key+'记录');
+      },
+    });
+    var router01=new testrouter01();
+    var intnum=0;
+    window.setInterval(function(){
+      intnum++;
+      if(intnum%2==0)
+      router01.navigate('search02/abc',{trigger:true});
+      else
+      router01.navigate('search03/def',{trigger:true});
+    });
+    Backbone.history.start();
+    $('#btnStop').bind('click',function(){
+      if($(this).val()=="停止"){
+        $(this).val('开始');
+        Backbone.history.stop();
+      }else{
+        $(this).val('停止');
+        Backbone.history.start();
+      }
+    });
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

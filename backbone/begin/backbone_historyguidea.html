@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>backbone_historyguide</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/underscore.js"></script>
+<script type="text/javascript" src="js/backbone.js"></script>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+  <input id="btnforward" type="button" value="前进" onclick="window.history.forward();">
+  <a href="backbone_historyguideb.html" id="linkforward">前进</a>
+  <script type="text/javascript">
+    var $obj_wh=window.history;
+    console.log($obj_wh);
+    if($obj_wh.length>1){
+      document.getElementById('linkforward').style.display='none';
+    }else{
+      document.getElementById('btnforward').style.display='none';
+    }
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

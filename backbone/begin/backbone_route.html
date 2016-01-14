@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>backbone_route</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/underscore.js"></script>
+<script type="text/javascript" src="js/backbone.js"></script>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+  <div>
+    <a href="">首页</a> | 
+    <a href="#search">查询列表</a> | 
+    <a href="#search/abc">关键词查询</a> | 
+    <a href="#search2/abc/p2">页码关键字查询</a> | 
+    <a href="#abc/p5">其他页</a>
+
+  </div>
+  <div id="divShow"></div>
+  <div id="divShow01"></div>
+  <script type="text/javascript">
+    var $divShow=$('#divShow');
+    var testrouter=Backbone.Router.extend({
+      routes:{
+        '':'main',
+        'search/:key':'search_key',
+        'search/:key/p:page':'search_key_page',
+        '*search':'search_default'
+      },
+      initialize:function(){
+        this.route('search','search_list',function(){
+              $divShow.html('查询列表');
+        });
+      },
+      main:function(){
+        $divShow.html('首页');
+      },
+      search_key:function(key){
+        $divShow.html('查询的关键词为'+key+'记录');
+      },
+      search_key_page:function(key,page){
+        $divShow.html('查询的关键词为'+key+'记录，页码为'+page);
+      },
+      search_default:function(){
+        $divShow.html('其他页');
+      }
+    });
+    var router=new testrouter();
+    router.route('search2/:key/p:page','search_key_page2',function(key,page){
+      $divShow.html('实例化后，查询的关键词为'+key+'记录，页码为'+page);
+    });
+    //Backbone.history.start();
+    var $divShow01=$('#divShow01');
+    var testrouter01=Backbone.Router.extend({
+      routes:{
+        'search02/:key':'search2_key',
+        'search03/:key':'search3_key'
+      },
+      search2_key:function(key){
+        $divShow01.html('查询2关键字为'+key+'记录');
+      },
+      search3_key:function(key){
+        $divShow01.html('查询3关键字为'+key+'记录');
+      },
+    });
+    var router01=new testrouter01();
+    var intnum=0;
+    window.setInterval(function(){
+      intnum++;
+      if(intnum%2==0)
+      router01.navigate('search02/abc',{trigger:true});
+      else
+      router01.navigate('search03/def',{trigger:true});
+    });
+    Backbone.history.start();
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
