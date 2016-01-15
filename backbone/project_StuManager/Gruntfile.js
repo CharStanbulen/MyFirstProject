@@ -1,0 +1,24 @@
+module.exports=function(grunt){
+  grunt.initConfig({
+    pkg:grunt.file.readJSON('package.json'),
+    uglify:{
+      options:{
+        stripBanners:true,
+        banner:'/*<%=pkg.name%>-<%=pkg.version%>.js <%=grunt.template.today("yyyy-mm-dd")%>*/\n'
+      },
+      build:{
+        files:[
+          {
+            expand:true,
+            cwd:'res_dev/js',
+            src:'**/*.js',
+            dest:'resource/js',
+            ext:'.min.js'
+          }
+        ]
+      }
+    }
+  });
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.registerTask('default',['uglify']);
+}

@@ -9,7 +9,7 @@ module.exports=function(grunt){
     uglify:{
       options:{
         stripBanners:true,
-        banner:'/*<%=pkg.name%>-<%pkg.version%>.js <%=grunt.template.today("yyyy-mm--dd")%>*/\n'
+        banner:'/*<%=pkg.name%>-<%pkg.version%>.js <%=grunt.template.today("yyyy-mm-dd")%>*/\n'
       },
       build:{
         src:'src/*.js',

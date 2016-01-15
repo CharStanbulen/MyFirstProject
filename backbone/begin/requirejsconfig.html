@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>加载指定路径的模块文件</title>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="js/require.js"></script>
+  <script type="text/javascript">
+    require.config({
+      baseUrl:'js',
+      paths:{
+        'jQuer':'jquery-1.11.1'
+      }
+    })
+    require(['jQuer'],function(){
+      $('#tip').html('欢迎来到require世界！');
+    })
+  </script>
+</head>
+<body>
+  <div id="tip"></div>
+</body>
+  <script>
+
+  </script>
+</html>
