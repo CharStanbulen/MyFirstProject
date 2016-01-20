@@ -1,4 +1,5 @@
 module.exports=function(grunt){
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
   grunt.initConfig({
     pkg:grunt.file.readJSON('package.json'),
     uglify:{
@@ -17,8 +18,64 @@ module.exports=function(grunt){
           }
         ]
       }
+    },
+    less:{
+     build:{
+       files:[{
+         expand:true,
+         cwd:'res_dev/less',
+         src:'**/*.less',
+         dest:'res_dev/css',
+         ext:'.css'
+       }]
+     }
+    },
+    cssmin:{
+      build:{
+        files:[{
+          expand:true,
+          cwd:'res_dev/css',
+          src:'**/*.css',
+          dest:'resource/css',
+          ext:'.min.css'
+        }]
+      }
+    },
+    imagemin:{
+      dist:{
+        options:{
+          optimizationLevel:3
+        },
+        files:[
+          {
+            expand:true,
+            cwd:'res_dev/images',
+            src:['**/*.{png,jpg,jpeg}'],
+            dest:'resource/images'
+          }
+        ]
+      }
+    },
+    jshint:{
+      build:['res_dev/js/*.js'],
+      options:{
+        jshintrc:'.jshintrc'
+      }
+    },
+    watch:{
+      js:{
+        files:['res_dev/js/*.js'],
+        tasks:['uglify'],
+      },
+      less:{
+        files:['res_dev/less/*.less'],
+        tasks:['less','cssmin'],
+      },
+      image:{
+        files:['res_dev/images/*.{png,jpg,jpeg}'],
+        tasks:['imagemin'],
+      }
     }
   });
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.registerTask('default',['uglify']);
+  grunt.registerTask('default',['uglify','less','cssmin','imagemin','watch']);
 }
