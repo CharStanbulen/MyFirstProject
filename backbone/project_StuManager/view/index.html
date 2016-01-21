@@ -21,15 +21,15 @@
         </li>
     </ul>
     <script type="text/template" id="item-template">
-        <span><div><% =StuID %></div></span>
+        <span><div><%=StuID %></div></span>
         <span class="show">
-                <div class="disp"><% =Name %></div>
+                <div class="disp"><%=Name %></div>
                 <div class="edit">
                     <input type="text" name="Name" id="Name" class="inputtxt" size="8">
                 </div>
             </span>
         <span class="show">
-                <div class="disp"><% =Sex %></div>
+                <div class="disp"><%=Sex %></div>
                 <div class="edit">
                     <select name="Sex" id="Sex">
                         <option value="男">男</option>
@@ -38,7 +38,7 @@
                 </div>
             </span>
         <span class="show">
-                <div class="disp"><% =Score %></div>
+                <div class="disp"><%=Score %></div>
                 <div class="edit">
                     <input type="text" name="Score" id="Score" class="inputtxt" size="8">
                 </div>
@@ -48,7 +48,7 @@
     <div class="input">
             <span class="span1">
                 学号：<input type="text" readonly="readonly" name="StuID" id="StuID" class="inputtxt" size="10"><br />
-                姓名：<input type="text" readonly="readonly" name="Name" id="Name" class="inputtxt" size="15">
+                姓名：<input type="text" name="Name" id="Name" class="inputtxt" size="15">
             </span>
             <span class="spanr">
                 性别：<select name="Sex" id="Sex">
