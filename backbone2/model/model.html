@@ -1,0 +1,67 @@
+<DOCTYPY html>
+<html>
+<head>
+<title>backbone title</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="../js/jQuery.js"></script>
+<script type="text/javascript" src="../js/underscore.js"></script>
+<script type="text/javascript" src="../js/backbone.js"></script>
+</head>
+
+
+<body>
+
+</body>
+<script type="text/javascript">
+  /*
+  Person=Backbone.Model.extend({
+    initialize:function(){
+      console.log('hello world');
+    },
+    defaults:{
+      name:'Mark',
+      height:'185cm'
+    }
+  })
+  //create obj
+  //var p=new Person();
+  //use param to create obj
+  var p=new Person({
+    name:'Char',
+    height:'178cm'
+  })
+  console.log(p.get('name'));
+  */
+
+   
+  Person=Backbone.Model.extend({
+    initialize:function(){
+      console.log('hello world');
+      this.bind('change:name',function(){
+        console.log(this.get('name')+' is now the value for name');
+      })
+      this.bind('error',function(model,error){
+        console.error(error);
+      })
+    },
+    defaults:{
+      name:'Bob Hope',
+      height:'unknow'
+    },
+    validate:function(attributes){
+      if(attributes.name=='Joe'){
+        return 'Uh oh,you"re name is joe!'
+      }
+    }
+  })
+  var person=new Person();
+  person.set({
+    name:'Joe',
+    height:'6 feet'
+  },{validate:true})
+  console.log(person.toJSON());
+  
+</script>
+
+
+</html>

@@ -1,0 +1,42 @@
+<DOCTYPY html>
+<html>
+<head>
+<title>backbone object</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="../js/jQuery.js"></script>
+<script type="text/javascript" src="../js/underscore.js"></script>
+<script type="text/javascript" src="../js/backbone.js"></script>
+</head>
+
+
+<body>
+
+</body>
+<script type="text/javascript">
+
+    /*
+    var myRouter=new Backbone.Router({
+      routes:{'foo':'bar'},bar:function(){}
+    })
+    console.log('var myRouter=new Backbone.Router()');
+    console.log(_.keys(myRouter));
+    console.log(_.keys(Object.getPrototypeOf(myRouter)));
+    */
+    
+    var View=function(parameter1,parameter2){
+      this.Iam='View Constructor';
+      this.initialize.apply(this,arguments);
+    };
+    
+    View.prototype.initialize=function(){}
+    
+    View.extend=function(protoProps,staticProps){
+      var parent=this;
+      var child;
+      if(protoProps)
+    }
+    
+</script>
+
+
+</html>

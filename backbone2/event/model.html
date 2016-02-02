@@ -1,0 +1,148 @@
+<DOCTYPY html>
+<html>
+<head>
+<title>backbone event</title>
+<meta charset="utf-8">
+<script type="text/javascript" src="../js/jQuery.js"></script>
+<script type="text/javascript" src="../js/underscore.js"></script>
+<script type="text/javascript" src="../js/backbone.js"></script>
+</head>
+
+
+<body>
+
+</body>
+<script type="text/javascript">
+  /*
+  Backbone.on('sayHi',function(){
+    console.log('Hi');
+  })
+  var eavesdropper=_.extend({},Backbone.Events);
+  eavesdropper.listenTo(Backbone,'sayHi',function(){
+    console.log('I heard that');
+  })
+  Backbone.trigger('sayHi');
+  */
+
+  //var A=_.extend({name:'A'},Backbone.Events);
+  //console.log(Object.keys(A));
+  /*
+  var A=_.extend({name:'A'},Backbone.Events);
+  A.on('whatsMyName',function(){
+    console.log(this.name);
+  })
+  A.trigger('whatsMyName');
+  */
+  /*
+  var A=_.extend({name:'A'},Backbone.Events);
+  A.on('sayHi greet',function(){
+    console.log('Hello');
+  })
+  A.trigger('sayHi');
+  A.trigger('greet');
+  */
+  /*
+  var A=_.extend({name:'A'},Backbone.Events);
+  A.on('say:hi',function(){
+    console.log('Hi');
+  })
+  A.on('say:hello',function(){
+    console.log('Hello');
+  })
+  A.trigger('say:hi say:hello')
+  */
+  /*
+  var A=_.extend({name:'A'},Backbone.Events);
+  A.on('say',function(options){
+    console.log(options[0]);
+    console.log(options[1]);
+  })
+  A.trigger('say',['Hello','Good Bye']);
+  */
+  /*
+  var A=_.extend({name:'A'},Backbone.Events);
+  var B={name:'B'};
+  A.on('sayMyName',function(){
+    console.log(this.name);
+  },B)
+  A.trigger('sayMyName');
+  */
+  /*
+    var A=_.extend({name:'A'},Backbone.Events);
+    var foo=function(){
+      console.log('foo');
+    }
+    var bar=function(){
+      console.log('bar');
+    }
+    A.on('log',foo);
+    A.on('log',bar);
+    
+    A.trigger('log');
+    A.off('log');
+    A.trigger('log');
+    */
+    /*
+    var A=_.extend({name:'A'},Backbone.Events);
+    var foo=function(){
+      console.log('foo');
+    }
+    A.on('log1',foo);
+    A.on('log2',foo);
+    
+    A.trigger('log1 log2');
+    A.off(null,foo);
+    A.trigger('log1 log2');
+    */
+    /*
+    var A=_.extend({name:'A'},Backbone.Events);
+    var B=_.extend({name:'B'},Backbone.Events);
+    
+    var whosListeningToMe=function(){
+      console.log(this.name);
+    }
+    
+    B.listenTo(A,'whosListeningToMe',whosListeningToMe);
+    
+    A.trigger('whosListeningToMe');
+    */
+    /*
+    var A=_.extend({name:'A'},Backbone.Events);
+    var B=_.extend({name:'B'},Backbone.Events);
+    var C=_.extend({name:'C'},Backbone.Events);
+    var whosListeningToMe=function(){
+      console.log(this.name);
+    }
+    B.listenTo(A,'whosListeningToMe',whosListeningToMe);
+    B.listenTo(C,'whosListeningToMe',whosListeningToMe);
+    A.trigger('whosListeningToMe');
+    C.trigger('whosListeningToMe');
+    B.stopListening();
+    A.trigger('whosListeningToMe');
+    C.trigger('whosListeningToMe');
+    */
+    /*
+    var A=_.extend({name:'A'},Backbone.Events);
+    var B=_.extend({name:'B'},Backbone.Events);
+    var C=_.extend({name:'C'},Backbone.Events);
+    var whosListeningToMe=function(){
+      console.log(this.name);
+    }
+    B.listenTo(A,'whosListeningToMe',whosListeningToMe);
+    B.listenTo(C,'whosListeningToMe',whosListeningToMe);
+    A.trigger('whosListeningToMe');
+    C.trigger('whosListeningToMe');
+    B.stopListening(A);
+    A.trigger('whosListeningToMe');
+    C.trigger('whosListeningToMe');
+    */
+    var myModel=new Backbone.Model();
+    myModel.on('all',function(e){
+      console.log(e);
+    })
+    myModel.set({'test':'test'});
+    
+</script>
+
+
+</html>
